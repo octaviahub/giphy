@@ -22,7 +22,50 @@ function generatebtn(arrayToUse, classToAdd, areaToAddTo) {
 	}
 }
 
-$(document).on()
+$(document).on("click", ".brand-button", function() {
+	$("#brands").empty();
+	$(".brand-button").removeClass("active");
+	$(this).addClass("active");
+
+	let type = $(this).attr("data-type");
+	let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=6pjOOrS01DwSu6QGSzHtU8Z3jKVvQRjc";
+
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+
+	})
+	.then(function(response){
+		let results = response.data;
+
+		for(let i = 0; i <results.length; i ++) {
+			let brandsDiv = $("<div class=\"brand-item\">");
+
+			let rating = results[i].rating;
+			let p = $("<p>").text("Rating: " + rating);
+
+			let animated = results[i].images.fixed_height.url;
+			let still = results[i].images.fixed_height_still.url;
+
+			let brandImage = $("<img>");
+			brandImage.attr("src", still);
+			brandImage.attr("data-still", still);
+			brandImage.attr("data-animate", animated);
+			brandImage.attr("data-state", "still");
+			brandImage.addClass("brand-image");
+
+			brandDiv.append(p);
+			brandDiv.append(brandImage);
+
+			$("#brands").append(brandDiv);
+			
+
+
+		}
+	})
+
+
+} )
 
 
 
