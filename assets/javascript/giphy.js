@@ -58,18 +58,45 @@ $(document).on("click", ".brand-button", function() {
 			brandDiv.append(brandImage);
 
 			$("#brands").append(brandDiv);
-			
 
 
 		}
-	})
+	});
 
 
-} )
+});
+
+$(document).on("click", ".brand-image", function() {
+
+	let state = $(this).attr("data-state");
+	if(state === "still") {
+		$(this).attr("src", $(this).attr("data-animate"));
+		$(this).attr("data-state", "animate")
+	}
+	else{
+		$(this).attr("src", $(this).attr("data-still"));
+		$(this).attr("data-state", "still");
+
+	}
+
+});
 
 
+$("#add-brand").on("click", function(event) {
+	event.preventDefault();
+	let newBrand = $("input").eq(0).val();
 
+	if (newBrand.length > 2) {
+		brands.push(newBrand);
+	}
 
+	generateBtn(brands, "brand-button", "#brand-buttons"); 
+
+});
+
+generateBtn(brands, "brand-button", "#brand-buttons");
+
+});
 
 //create an array of strings, each one related to a topic that interests you. 
 //Save it to a variable called `topics`.
