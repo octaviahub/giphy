@@ -39,7 +39,7 @@ $(document).on("click", ".brand-button", function() {
 		let results = response.data;
 
 		for(let i = 0; i <results.length; i ++) {
-			let brandsDiv = $("<div class=\"brand-item\">");
+			let brandDiv = $("<div class=\"brand-item\">");
 
 			let rating = results[i].rating;
 			let p = $("<p>").text("Rating: " + rating);
