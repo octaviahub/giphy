@@ -1,0 +1,50 @@
+body {
+	font: 
+	background: ;
+}
+
+#brands {
+	width: 70%;
+
+}
+
+.brand-item{
+	float: left;
+	padding: 10px;
+}
+
+
+button, 
+input [type="submit"] {
+	padding: 5px 20px;
+	margin: 0 10px 10px 0;
+	font-size: 18px;
+	color: ;
+	cursor: pointer;
+	background: ;
+	border: 0;
+	border-radius: 5px;
+}
+
+button: hover, 
+input[type="submit"];hover {
+	background: #;
+}
+
+button.active {
+	background: #;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px; 
+	font-weight: 700;
+}
+
+form {
+	float: right;
+	width: 30%;
+	padding: 20px;
+}
+
+

@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 	];
 
-function generatebtn(arrayToUse, classToAdd, areaToAddTo) {
+function generateBtn(arrayToUse, classToAdd, areaToAddTo) {
 	$(areaToAddTo).empty();
 
 	for(let i = 0; i < arrayToUse.length; i ++) {
