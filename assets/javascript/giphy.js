@@ -1,3 +1,10 @@
+// I have been holding off on submitting this code becuase
+// I have yet to  get it to work with the Giphy API
+// and I cannot spot the erro, as there are none showing in 
+// the dev tools. I have tried to compare and rearange with the solution 
+// and it still does nto work. I am wondering if it si the API key. I 
+// apppreciate your feedback. At this point I need to hav eit submitted.
+
 $(document).ready(function() {
 
 	let brands = [
@@ -8,7 +15,7 @@ $(document).ready(function() {
 		"lucky brand", "tommy hilfiger", "versace", "gucci", "kate spade", "anne klein" 
 
 	];
-
+// loop which appends butttons to page
 function generateBtn(arrayToUse, classToAdd, areaToAddTo) {
 	$(areaToAddTo).empty();
 
@@ -28,7 +35,7 @@ $(document).on("click", ".brand-button", function() {
 	$(this).addClass("active");
 
 	let type = $(this).attr("data-type");
-	let queryURL = "http://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=6pjOOrS01DwSu6QGSzHtU8Z3jKVvQRjc";
+	let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + type + "&api_key=6pjOOrS01DwSu6QGSzHtU8Z3jKVvQRjc";
 
 	$.ajax({
 		url: queryURL,
@@ -38,7 +45,7 @@ $(document).on("click", ".brand-button", function() {
 	.then(function(response){
 		let results = response.data;
 
-		for(let i = 0; i <results.length; i ++) {
+		for (let i = 0; i <results.length; i ++) {
 			let brandDiv = $("<div class=\"brand-item\">");
 
 			let rating = results[i].rating;
@@ -58,12 +65,8 @@ $(document).on("click", ".brand-button", function() {
 			brandDiv.append(brandImage);
 
 			$("#brands").append(brandDiv);
-
-
 		}
 	});
-
-
 });
 
 $(document).on("click", ".brand-image", function() {
@@ -97,6 +100,14 @@ $("#add-brand").on("click", function(event) {
 generateBtn(brands, "brand-button", "#brand-buttons");
 
 });
+
+
+
+
+
+
+
+
 
 //create an array of strings, each one related to a topic that interests you. 
 //Save it to a variable called `topics`.
